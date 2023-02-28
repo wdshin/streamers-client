@@ -18,7 +18,7 @@ export default function NewPasswordPage() {
   return (
     <>
       <Helmet>
-        <title> New Password | Minimal UI</title>
+        <title> New Password | CryptoAlerts</title>
       </Helmet>
 
       <SentIcon sx={{ mb: 5, height: 96 }} />
@@ -49,8 +49,7 @@ export default function NewPasswordPage() {
           mx: 'auto',
           alignItems: 'center',
           display: 'inline-flex',
-        }}
-      >
+        }}>
         <Iconify icon="eva:chevron-left-fill" width={16} />
         Return to sign in
       </Link>

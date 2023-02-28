@@ -30,7 +30,7 @@ export default function Settings() {
   return (
     <>
       <Helmet>
-        <title> Settings | Minimal UI</title>
+        <title> Settings | CryptoAlerts</title>
       </Helmet>
 
       <Container maxWidth="xl">

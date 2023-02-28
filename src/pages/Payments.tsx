@@ -11,7 +11,7 @@ export default function PageThree() {
   return (
     <>
       <Helmet>
-        <title> Payments | Minimal UI</title>
+        <title> Payments | CryptoAlerts</title>
       </Helmet>
 
       <Container maxWidth={'xl'}>

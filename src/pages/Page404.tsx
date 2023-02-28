@@ -15,7 +15,7 @@ export default function Page404() {
   return (
     <>
       <Helmet>
-        <title> 404 Page Not Found | Minimal UI</title>
+        <title> 404 Page Not Found | CryptoAlerts</title>
       </Helmet>
 
       <MotionContainer>
@@ -27,8 +27,8 @@ export default function Page404() {
 
         <m.div variants={varBounce().in}>
           <Typography sx={{ color: 'text.secondary' }}>
-            Sorry, we couldn’t find the page you’re looking for. Perhaps you’ve mistyped the URL? Be
-            sure to check your spelling.
+            Sorry, we couldn’t find the page you’re looking for. Perhaps you’ve
+            mistyped the URL? Be sure to check your spelling.
           </Typography>
         </m.div>
 
