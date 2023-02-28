@@ -16,7 +16,9 @@ const Image = forwardRef<HTMLSpanElement, ImageProps>(
         component={LazyLoadImage}
         wrapperClassName="wrapper"
         effect={disabledEffect ? undefined : effect}
-        placeholderSrc={disabledEffect ? '/assets/transparent.png' : '/assets/placeholder.svg'}
+        placeholderSrc={
+          disabledEffect ? '/assets/transparent.png' : '/assets/placeholder.svg'
+        }
         sx={{ width: 1, height: 1, objectFit: 'cover' }}
         {...other}
       />
@@ -43,8 +45,7 @@ const Image = forwardRef<HTMLSpanElement, ImageProps>(
               backgroundSize: 'cover !important',
             },
             ...sx,
-          }}
-        >
+          }}>
           {content}
         </Box>
       )
@@ -65,12 +66,13 @@ const Image = forwardRef<HTMLSpanElement, ImageProps>(
             backgroundSize: 'cover !important',
           },
           ...sx,
-        }}
-      >
+        }}>
         {content}
       </Box>
     )
-  }
+  },
 )
+
+Image.displayName = 'Image'
 
 export default Image

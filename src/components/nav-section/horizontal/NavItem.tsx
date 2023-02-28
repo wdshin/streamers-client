@@ -30,8 +30,7 @@ const NavItem = forwardRef<HTMLDivElement, NavItemProps>(
         depth={depth}
         active={active}
         disabled={disabled}
-        {...other}
-      >
+        {...other}>
         {icon && <StyledIcon>{icon}</StyledIcon>}
 
         <ListItemText
@@ -85,7 +84,9 @@ const NavItem = forwardRef<HTMLDivElement, NavItemProps>(
     }
 
     return <RoleBasedGuard roles={roles}> {renderItem()} </RoleBasedGuard>
-  }
+  },
 )
+
+NavItem.displayName = 'NavItem'
 
 export default NavItem

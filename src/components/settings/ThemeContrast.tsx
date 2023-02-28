@@ -10,8 +10,8 @@ import { useSettingsContext } from './SettingsContext'
 // ----------------------------------------------------------------------
 
 type Props = {
-  children: React.ReactNode;
-};
+  children: React.ReactNode
+}
 
 export default function ThemeContrast({ children }: Props) {
   const outerTheme = useTheme()
@@ -27,7 +27,9 @@ export default function ThemeContrast({ children }: Props) {
       palette: {
         background: {
           ...(isContrastBold && {
-            default: isLight ? outerTheme.palette.grey[100] : outerTheme.palette.grey[900],
+            default: isLight
+              ? outerTheme.palette.grey[100]
+              : outerTheme.palette.grey[900],
           }),
         },
       },
@@ -43,9 +45,7 @@ export default function ThemeContrast({ children }: Props) {
         },
       },
     }),
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [isLight, themeContrast]
+    [isLight, themeContrast],
   )
 
   const theme = createTheme(merge(outerTheme, themeOptions))

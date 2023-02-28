@@ -6,7 +6,7 @@ import { Box, Fab, FabProps, SxProps } from '@mui/material'
 // ----------------------------------------------------------------------
 
 export interface FabButtonAnimateProps extends FabProps {
-  sxWrap?: SxProps;
+  sxWrap?: SxProps
 }
 
 const FabButtonAnimate = forwardRef<HTMLButtonElement, FabButtonAnimateProps>(
@@ -16,18 +16,20 @@ const FabButtonAnimate = forwardRef<HTMLButtonElement, FabButtonAnimateProps>(
         {children}
       </Fab>
     </AnimateWrap>
-  )
+  ),
 )
+
+FabButtonAnimate.displayName = 'FabButtonAnimate'
 
 export default FabButtonAnimate
 
 // ----------------------------------------------------------------------
 
 type AnimateWrapProp = {
-  children: React.ReactNode;
-  size: 'small' | 'medium' | 'large';
-  sxWrap?: SxProps;
-};
+  children: React.ReactNode
+  size: 'small' | 'medium' | 'large'
+  sxWrap?: SxProps
+}
 
 const varSmall = {
   hover: { scale: 1.07 },
@@ -57,8 +59,7 @@ function AnimateWrap({ size, children, sxWrap }: AnimateWrapProp) {
       sx={{
         display: 'inline-flex',
         ...sxWrap,
-      }}
-    >
+      }}>
       {children}
     </Box>
   )

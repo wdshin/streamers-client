@@ -45,8 +45,7 @@ const CustomAvatar = forwardRef<HTMLDivElement, CustomAvatarProps>(
             fontWeight: theme.typography.fontWeightMedium,
             ...sx,
           }}
-          {...other}
-        >
+          {...other}>
           {name && charAtName}
           {children}
         </Avatar>
@@ -56,14 +55,15 @@ const CustomAvatar = forwardRef<HTMLDivElement, CustomAvatarProps>(
       <Badge
         overlap="circular"
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-        {...BadgeProps}
-      >
+        {...BadgeProps}>
         {renderContent}
       </Badge>
     ) : (
       renderContent
     )
-  }
+  },
 )
+
+CustomAvatar.displayName = 'CustomAvatar'
 
 export default CustomAvatar

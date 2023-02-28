@@ -12,17 +12,19 @@ const IconButtonAnimate = forwardRef<HTMLButtonElement, IconButtonProps>(
         {children}
       </IconButton>
     </AnimateWrap>
-  )
+  ),
 )
+
+IconButtonAnimate.displayName = 'IconButtonAnimate'
 
 export default IconButtonAnimate
 
 // ----------------------------------------------------------------------
 
 type AnimateWrapProp = {
-  children: React.ReactNode;
-  size: 'small' | 'medium' | 'large';
-};
+  children: React.ReactNode
+  size: 'small' | 'medium' | 'large'
+}
 
 const varSmall = {
   hover: { scale: 1.1 },
@@ -51,8 +53,7 @@ function AnimateWrap({ size, children }: AnimateWrapProp) {
       variants={(isSmall && varSmall) || (isLarge && varLarge) || varMedium}
       sx={{
         display: 'inline-flex',
-      }}
-    >
+      }}>
       {children}
     </Box>
   )

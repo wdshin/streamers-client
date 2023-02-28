@@ -72,12 +72,13 @@ const CustomAvatarGroup = forwardRef<HTMLDivElement, CustomAvatarGroupProps>(
           ...(compact && { ...compactStyle }),
           ...sx,
         }}
-        {...other}
-      >
+        {...other}>
         {children}
       </AvatarGroup>
     )
-  }
+  },
 )
+
+CustomAvatarGroup.displayName = 'CustomAvatarGroup'
 
 export default CustomAvatarGroup
