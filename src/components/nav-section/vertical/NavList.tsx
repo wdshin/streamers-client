@@ -13,10 +13,10 @@ import NavItem from './NavItem'
 // ----------------------------------------------------------------------
 
 type NavListRootProps = {
-  data: NavListProps;
-  depth: number;
-  hasChild: boolean;
-};
+  data: NavListProps
+  depth: number
+  hasChild: boolean
+}
 
 export default function NavList({ data, depth, hasChild }: NavListRootProps) {
   const { pathname } = useLocation()
@@ -29,7 +29,6 @@ export default function NavList({ data, depth, hasChild }: NavListRootProps) {
     if (!active) {
       handleClose()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
 
   const handleToggle = () => {
@@ -63,14 +62,14 @@ export default function NavList({ data, depth, hasChild }: NavListRootProps) {
 // ----------------------------------------------------------------------
 
 type NavListSubProps = {
-  data: NavListProps[];
-  depth: number;
-};
+  data: NavListProps[]
+  depth: number
+}
 
 function NavSubList({ data, depth }: NavListSubProps) {
   return (
     <>
-      {data.map((list) => (
+      {data.map(list => (
         <NavList
           key={list.title + list.path}
           data={list}
