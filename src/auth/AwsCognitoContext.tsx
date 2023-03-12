@@ -26,14 +26,6 @@ import {
   AWSCognitoContextType,
 } from './types'
 
-// ----------------------------------------------------------------------
-
-// NOTE:
-// We only build demo at basic level.
-// Customer will need to do some extra handling yourself if you want to extend the logic and other features...
-
-// ----------------------------------------------------------------------
-
 enum Types {
   AUTH = 'AUTH',
   REGISTER = 'REGISTER',
@@ -86,7 +78,7 @@ export const AuthContext = createContext<AWSCognitoContextType | null>(null)
 
 // ----------------------------------------------------------------------
 
-const userPool = new CognitoUserPool({
+export const userPool = new CognitoUserPool({
   UserPoolId: COGNITO_API.userPoolId || '',
   ClientId: COGNITO_API.clientId || '',
 })

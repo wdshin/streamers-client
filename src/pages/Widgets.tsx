@@ -1,14 +1,28 @@
 import React from 'react'
+import { useQuery } from '@tanstack/react-query'
 import { Helmet } from 'react-helmet-async'
 import { Container, Typography } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { PATH_DASHBOARD } from 'src/routes/paths'
-import { useAuthContext } from 'src/auth/useAuthContext'
 import alertWidgetImage from 'src/assets/images/alert-widget-0.png'
 import { WidgetItem } from 'src/sections/widgets/WidgetItem'
+import { getStreamer, getWidgets } from 'src/utils/api'
 
 export default function Widgets() {
-  const { user } = useAuthContext()
+  const navigate = useNavigate()
+  const { data: user, isLoading: userIsLoading } = useQuery({
+    queryKey: ['streamer'],
+    queryFn: getStreamer,
+  })
+  const { data: widgets } = useQuery({
+    queryKey: ['widgets'],
+    queryFn: getWidgets,
+  })
+
+  if (!userIsLoading && !user) {
+    navigate(PATH_DASHBOARD.settings, { replace: true })
+    return null
+  }
 
   return (
     <>
@@ -20,12 +34,6 @@ export default function Widgets() {
         <Typography variant="h3" component="h1" paragraph>
           Widgets
         </Typography>
-
-        {/* <Typography gutterBottom variant="h5">
-          Hey, to start using the widgets, you need to add your TON wallet
-          address on the <Link to={PATH_DASHBOARD.settings}>Settings page</Link>
-          .
-        </Typography> */}
       </Container>
 
       <Container maxWidth="xl">
