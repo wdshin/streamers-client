@@ -20,27 +20,27 @@ const queryClient = new QueryClient()
 
 export default function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <HelmetProvider>
-          <SettingsProvider>
-            <BrowserRouter>
-              <ScrollToTop />
-              <MotionLazyContainer>
-                <ThemeProvider>
-                  <ThemeSettings>
-                    <ThemeLocalization>
-                      <SnackbarProvider>
+    <AuthProvider>
+      <HelmetProvider>
+        <SettingsProvider>
+          <BrowserRouter>
+            <ScrollToTop />
+            <MotionLazyContainer>
+              <ThemeProvider>
+                <ThemeSettings>
+                  <ThemeLocalization>
+                    <SnackbarProvider>
+                      <QueryClientProvider client={queryClient}>
                         <Router />
-                      </SnackbarProvider>
-                    </ThemeLocalization>
-                  </ThemeSettings>
-                </ThemeProvider>
-              </MotionLazyContainer>
-            </BrowserRouter>
-          </SettingsProvider>
-        </HelmetProvider>
-      </AuthProvider>
-    </QueryClientProvider>
+                      </QueryClientProvider>
+                    </SnackbarProvider>
+                  </ThemeLocalization>
+                </ThemeSettings>
+              </ThemeProvider>
+            </MotionLazyContainer>
+          </BrowserRouter>
+        </SettingsProvider>
+      </HelmetProvider>
+    </AuthProvider>
   )
 }

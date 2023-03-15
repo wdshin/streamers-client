@@ -1,4 +1,5 @@
 export interface IStreamer {
+  streamerId?: string
   wallet_address: string
   cognito_id: string
 }

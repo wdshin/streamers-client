@@ -10,10 +10,11 @@ export interface LogoProps extends BoxProps {
 }
 
 const Logo = forwardRef<HTMLDivElement, LogoProps>(
-  ({ disabledLink = false, sx, favicon = false }) => {
+  ({ disabledLink = false, sx, favicon = false }, ref) => {
     const logo = (
       <Box
         component="img"
+        ref={ref}
         src={favicon ? '/favicon/favicon.png' : '/logo/logo_single.png'}
         sx={{ width: 120, height: 28, cursor: 'pointer', ...sx }}
       />
@@ -24,7 +25,11 @@ const Logo = forwardRef<HTMLDivElement, LogoProps>(
     }
 
     return (
-      <Link component={RouterLink} to="/" sx={{ display: 'contents' }}>
+      <Link
+        component={RouterLink}
+        to="/"
+        sx={{ display: 'contents' }}
+        ref={{ current: ref as any }}>
         {logo}
       </Link>
     )

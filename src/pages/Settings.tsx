@@ -23,8 +23,10 @@ export default function Settings() {
   const { data: user, isLoading: userIsLoading } = useQuery({
     queryKey: ['streamer'],
     queryFn: getStreamer,
+    retry: false,
+    refetchOnMount: false,
   })
-  const [openOnboarding, setOpenOnboarding] = useState(true)
+  const [openOnboarding, setOpenOnboarding] = useState(false)
   const { enqueueSnackbar } = useSnackbar()
   const [walletAddress, setWalletAddress] = React.useState('')
 
@@ -35,6 +37,9 @@ export default function Settings() {
   useEffect(() => {
     if (!userIsLoading && !user) {
       setOpenOnboarding(true)
+    }
+    if (user && user.wallet_address && !walletAddress) {
+      setWalletAddress(user.wallet_address)
     }
   }, [user, userIsLoading])
 
